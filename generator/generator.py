@@ -79,7 +79,6 @@ def get_new_md_content(old_content, new_content):
 
 
 
-
 existing_data = read_data("new.md")
 new_data = read_data("aaa.txt")
 new_sol_md = get_md_format_sol(new_data)
