@@ -37,15 +37,15 @@ def get_ind(data):
 
 
 def get_md_format_sol(data):
-    new_data = [''] * (len(data)+1)
+    new_data = [''] * (len(data)+3)
     new_data[0] = '##'+data[0]
     new_data[1] = "\n"
-    new_data[2]= data[1]
+    new_data[2] = data[1]
     new_data[3] = "\n"
     new_data[4] = '```python \n'
-    for i in range(5, len(data)-1):
-        new_data[i] = data[i-1][4:]
-    new_data[len(data)] = '```'
+    for i in range(5, len(data)):
+        new_data[i] = data[i][4:]
+    new_data[len(data)+2] = '\n```'
     return new_data
 
 
@@ -79,12 +79,12 @@ def get_new_md_content(old_content, new_content):
 
 
 
-existing_data = read_data("new.md")
-new_data = read_data("aaa.txt")
+existing_data = read_data("programs.md")
+new_data = read_data("reverse-linked-list.txt")
 new_sol_md = get_md_format_sol(new_data)
 new_link_md = get_new_md_format_link(new_data)
 new_md_data = get_new_md_content(existing_data, new_data)
 print(get_ind(existing_data))
-write_d("new.md", '#Arrays\n\n')
-write_data("new.md", new_md_data)
-write_data('new.md', '\n')
+write_d("programs.md", '#Programs\n\n')
+write_data("programs.md", new_md_data)
+write_data('programs.md', '\n')
