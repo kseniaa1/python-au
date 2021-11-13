@@ -1,0 +1,13 @@
+Reverse Linked List
+https://leetcode.com/problems/reverse-linked-list/
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        el_prev = None
+        el = head
+        while el is not None:
+            el_next = el.next
+            el.next = el_prev
+            el_prev = el
+            el = el_next
+        return el_prev

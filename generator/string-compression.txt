@@ -6,8 +6,8 @@ class Solution:
         for i in range(len(stri)):
             data.append(stri[i])
         return data
-        
-        
+
+
     def check(self, data,index, res):
         a = data[index]
         count = 0
@@ -25,7 +25,7 @@ class Solution:
             data.remove(a)
 
 
-            
+
     def compress(self, chars: List[str]) -> int:
         res = []
         while len(chars) != 0:
