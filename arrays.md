@@ -5,6 +5,7 @@
 
 https://leetcode.com/problems/squares-of-a-sorted-array/
 
+
 ```python 
    class Solution:
     def first(self,lst):
