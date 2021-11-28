@@ -1,43 +1,49 @@
 #Arrays
 
-+ [String Compression](#string-compression)
++ [ Squares of a Sorted Array](#-squares-of-a-sorted-array)
+## Squares of a Sorted Array
 
-## String Compression
+https://leetcode.com/problems/squares-of-a-sorted-array/
 
-https://leetcode.com/problems/string-compression/
-
-
-```python
-def delu(self, data, stri):
-    for i in range(len(stri)):
-        data.append(stri[i])
-    return data
-
-
-def check(self, data,index, res):
-    a = data[index]
-    count = 0
-    for i in range(index, len(data)):
-        if data[i] == a:
-            count +=1
-        else:
-            break
-    if count == 1:
-        res.append(a)
-    else:
-        res.append(a)
-        self.delu(res, str(count))
-    for i in range(count):
-        data.remove(a)
+```python 
+   class Solution:
+    def first(self,lst):
+        k = len(lst)
+        for i, numb in enumerate(lst):
+            if 0 < int(numb):
+                k = i
+                break
+        return(k)
 
 
-def compress(self, chars: List[str]) -> int:
-    res = []
-    while len(chars) != 0:
-        self.check(chars, 0, res)
-    chars.clear()
-    chars.extend(res)
-    return len(chars)
+    def new_list(self, data, num):
+        lst1 = []
+        lst2 = []
+        i = 0
+        while i < num:
+            lst1.append((-int(data[i]))**2)
+            i +=1
+        while i < len(data):
+            lst2.append(int(data[i])**2)
+            i += 1
+        lst1.reverse()
+        return lst1, lst2
+
+
+    def sortedSquares(self, num):
+        k = self.first(num)
+        data1, data2 = self.new_list(num, k)
+        i, j = 0, 0
+        result = []
+        while i < len(data1) and j < len(data2):
+            if data1[i] < data2[j]:
+                result.append(data1[i])
+                i += 1
+            else:
+                result.append(data2[j])
+                j += 1
+        result += data1[i:]
+        result += data2[j:]
+        return result
 
 ```
-
